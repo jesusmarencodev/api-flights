@@ -28,4 +28,9 @@ export class UserService {
 
         return await newUser.save();
     }
+
+    async findAll():Promise<IUser[]>{
+
+        return await this.model.find();
+    }
 }
