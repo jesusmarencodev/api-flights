@@ -1,7 +1,9 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { FlightDTO } from './dto/flight.dto';
 import { FlightService } from './flight.service';
 
+@ApiTags('Flight')
 @Controller('api/v1/flight')
 export class FlightController {
     constructor(private readonly flightService : FlightService){}
