@@ -5,13 +5,15 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { PassegerModule } from './passeger/passeger.module';
+import { FlightModule } from './flight/flight.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ envFilePath:['.env.development'], isGlobal : true }),
     MongooseModule.forRoot(process.env.URI_MONGODB),
     UserModule,
-    PassegerModule
+    PassegerModule,
+    FlightModule
 ],
   controllers: [AppController],
   providers: [AppService],

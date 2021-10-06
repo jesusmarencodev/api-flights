@@ -33,6 +33,6 @@ export class PassegerService {
     }
     async delete(id:string){
          await this.model.findByIdAndDelete(id);
-         return {status : HttpStatus.OK}
+         return {status : HttpStatus.OK, msg :'Deleted'}
     }
 }
