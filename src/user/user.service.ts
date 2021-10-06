@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, HttpStatus } from '@nestjs/common';
 import { IUser } from 'src/common/interfaces/user.interface';
 import { UserDTO } from './dto/user.dto';
 import * as bcrypt from 'bcrypt';
@@ -38,13 +38,15 @@ export class UserService {
     }
     async update(id:string, userDTO: UserDTO):Promise<IUser>{
         const hash = await this.hashPassword(userDTO.password);
-
         const user = {
             ...userDTO,
             password : hash
         }
-
         return await this.model.findByIdAndUpdate(id, user, { new : true});
+    }
+    async delete(id:string){
+         await this.model.findByIdAndDelete(id);
+         return {status : HttpStatus.OK}
     }
 
 
