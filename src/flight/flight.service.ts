@@ -26,7 +26,7 @@ export class FlightService {
         const month = dateFormat.substring(5, 7);
         const day = dateFormat.substring(8, 10);
 
-        const { data } = await axios.get(`https://www.metaweather.com//api/location/${woeid}/${year}/${month}/${day}/`)
+        const { data } = await axios.get(`https://www.metaweather.com/api/location/${woeid}/${year}/${month}/${day}/`)
 
         return data
     }
